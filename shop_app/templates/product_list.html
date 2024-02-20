@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Список продуктов</h1>
+    <ul>
+        <a href="add_product"><button>добавление фото</button></a>
+
+    {% for product in products %}
+        <li><a href="{% url 'product_detail' product.pk %}">{{ product.product_name }}</a></li>
+    {% empty %}
+        <li>No products yet.</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
